@@ -52,18 +52,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      -name: configure github pages
-       uses: actions/configure-pages@v4
-       with:
-         static_site_generator: next
+      - name: configure github pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: next
       - run: npm install
       - run: npm build
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.out'
-      - name:deploy
+      - name: deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
-        
